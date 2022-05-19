@@ -15,14 +15,19 @@ router.get('/', (req, res) => {
         attributes: ['id', 'product_name']
       }
     ]
-  });
+  })
+    .then(dbCategoryData => res.json(dbCategoryData))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json(err);
+    });
 });
 
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   Category.findOne({
     where: { id: req.params.id },
-    attributes: ['id', 'product_name'],
+    attributes: ['id', 'category_name'],
     // be sure to include its associated Products
     include: [
       {
