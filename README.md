@@ -1,1 +1,1 @@
-# E-commerce Back End Starter Code
+# shop2it: E-commerce Back End
